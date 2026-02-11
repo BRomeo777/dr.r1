@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dr. R - Advice</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; margin: 0; padding: 20px; }
+        .container { max-width: 700px; margin: 40px auto; }
+        .card { background: white; padding: 30px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        h1 { color: #333; margin-bottom: 20px; }
+        .symptoms { background: #e3f2fd; padding: 20px; border-radius: 15px; border-left: 5px solid #2196f3; margin-bottom: 20px; }
+        .response { background: #e8f5e9; padding: 20px; border-radius: 15px; border-left: 5px solid #4caf50; line-height: 1.6; font-size: 16px; }
+        .warning { background: #fff3cd; border: 2px solid #ffc107; color: #856404; padding: 20px; border-radius: 15px; text-align: center; font-weight: bold; margin: 20px 0; }
+        .btn { display: inline-block; padding: 12px 30px; background: #667eea; color: white; text-decoration: none; border-radius: 10px; margin-right: 10px; font-weight: bold; }
+        .btn:hover { background: #764ba2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🩺 Dr. R Advice</h1>
+            <div class="symptoms">
+                <strong>Your Symptoms:</strong><br>
+                {{ symptoms }}
+            </div>
+            <div class="response">
+                {{ ai_response|linebreaks }}
+            </div>
+        </div>
+        
+        <div class="warning">
+            ⚠️ This is AI-generated advice. Please consult a real doctor for serious conditions.
+        </div>
+        
+        <div class="card">
+            <a href="/consult/" class="btn">New Consultation</a>
+            <a href="/" class="btn">Home</a>
+        </div>
+    </div>
+</body>
+</html>

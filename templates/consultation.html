@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dr. R - Consultation</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 40px auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+        .back { color: #667eea; text-decoration: none; display: inline-block; margin-bottom: 20px; font-weight: bold; }
+        h1 { color: #333; margin-bottom: 10px; }
+        .info { color: #666; margin-bottom: 30px; }
+        textarea { width: 100%; height: 150px; padding: 15px; border: 2px solid #ddd; border-radius: 10px; font-size: 16px; resize: vertical; }
+        textarea:focus { border-color: #667eea; outline: none; }
+        button { width: 100%; padding: 15px; background: #28a745; color: white; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 20px; }
+        button:hover { background: #218838; }
+        .error { background: #f8d7da; color: #721c24; padding: 15px; border-radius: 10px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back">← Back to Home</a>
+        <h1>📝 Describe Your Symptoms</h1>
+        <p class="info">Dr. R will ask follow-up questions. No login required.</p>
+        {% if error %}
+            <div class="error">⚠️ {{ error }}</div>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <textarea name="symptoms" placeholder="Example: I have headache and fever for 2 days..." required></textarea>
+            <button type="submit">Get AI Advice</button>
+        </form>
+    </div>
+</body>
+</html>
